@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement")] public float speed = 40f;
-    public Vector2 movement;
-    public Rigidbody rb;
+    private float speed = 40f;
+    private Vector2 movement;
+    private Rigidbody rb;
 
-    [Header("Shooting")] [SerializeField] public Transform bulletSpawnPoint;
-    [SerializeField] public float bulletSpeed;
-    [SerializeField] public GameObject bulletToFire;
+    [SerializeField] private Transform bulletSpawnPoint;
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private GameObject bulletToFire;
 
     //Speed Power Up
     private float speedDuration;
@@ -20,34 +20,29 @@ public class PlayerMovement : MonoBehaviour
 
     // CoolDown Shooting
     [Header("Shooting CoolDown")] public float coolDown;
-    float lastShot;
+    public float lastShot;
 
     [Header("ParticleSystem")] public Transform ParticleSystemLightning;
 
 
-    void Start()
+   private void Start()
     {
         rb = GetComponent<Rigidbody>();
 
         ParticleSystemLightning.GetComponent<ParticleSystem>().enableEmission = false;
     }
-
-    // Update is called once per frame
-    void FixedUpdate()
+   private void FixedUpdate()
     {
         MoveCharacter(movement);
         movement = movement.normalized;
     }
 
-    private void Update()
-    {
-        movement = new Vector3(Input.GetAxis("Horizontal"),
-            Input.GetAxis("Vertical")); //* this is the controls of the player 
-
-
+   private void Update()
+    { 
+        movement = new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical")); //* this is the controls of the player 
         if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) ||
             Input.GetKey(KeyCode.Space)) // these are the keys to shoot a Bullet
-        {
+        { 
             ShootBullet(); // this actually shoots the bullet
         }
 
