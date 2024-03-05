@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
             speed = 40;
         }
 
-        //Kwal stun
+        //JellyFish stun
         if (stun == true)
         {
             ParticleSystemLightning.GetComponent<ParticleSystem>().enableEmission = true;
@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("kaas");
     }
 
-    //Kwal Stun
+    //Jellyfish Stun
     public void PlayerStunned()
     {
         stun = true;
