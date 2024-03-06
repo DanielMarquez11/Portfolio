@@ -28,10 +28,6 @@ public class MultiplayerManager : MonoBehaviour
         // Register the parent GameObject
         RegisterPlayer(playerInput,PlayerIndex);
         PlayerIndex++;
-
-
-
-        // 
         CameraFovManager[] cameraFov = FindObjectsOfType<CameraFovManager>();
 
         for (int i = 0; i < cameraFov.Length; i++)
@@ -54,14 +50,12 @@ public class MultiplayerManager : MonoBehaviour
         {
             Transform child = parentObject.transform.GetChild(i);
             GameObject childObject = child.gameObject;
-            // Do something with the child GameObject or its Transform
             childObject.gameObject.layer = 7 + playerIndex;
             parentObject.gameObject.layer = 7 + playerIndex;
             InputHandler[] inputHandlers = parentObject.GetComponentsInChildren<InputHandler>();
             inputHandlers[0].Horizontal = playerInput.actions.FindAction("Look");
             inputHandlers[1].Horizontal = playerInput.actions.FindAction("Look");
         }
-        // Update the UI
         UpdateUI();
     }
 
