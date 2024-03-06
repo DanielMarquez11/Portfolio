@@ -19,13 +19,11 @@ public class CameraFovManager : MonoBehaviour
 
             if (newDefaultCamera is CinemachineFramingTransposer framingTransposer)
             {
-                // Modify the screen X value
                 framingTransposer.m_ScreenX = _NewDefaultCameraX;
             }
 
             if (newAimCamera is CinemachineFramingTransposer AimframingTransposer)
             {
-                // Modify the screen X value
                 AimframingTransposer.m_ScreenX = _NewDefaultAimX;
             }
         }
@@ -36,13 +34,11 @@ public class CameraFovManager : MonoBehaviour
 
             if (newDefaultCamera is CinemachineFramingTransposer framingTransposer)
             {
-                // Modify the screen X value
                 framingTransposer.m_ScreenX = _DefaultCameraX;
             }
 
             if (newAimCamera is CinemachineFramingTransposer AimframingTransposer)
             {
-                // Modify the screen X value
                 AimframingTransposer.m_ScreenX = _DefaultAimX;
             }
         }
