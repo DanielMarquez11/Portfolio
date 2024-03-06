@@ -58,8 +58,6 @@ public class MobileMovement : MonoBehaviour
 
 		_moveDirection = forwardRelative + rightRelative;
 	}
-
-	// OnEnable method enables input actions for movement
 	private void OnEnable()
 	{
 		_playerMovement.Movementmap.Enable();
@@ -67,8 +65,6 @@ public class MobileMovement : MonoBehaviour
 		_playerMovement.IphoneMovements.Enable();
 		_playerMovement.MouseMovement.MouseMovement.Enable();
 	}
-
-	// OnDisable method disables input actions for movement
 	private void OnDisable()
 	{
 		_playerMovement.Movementmap.Disable();
@@ -76,8 +72,6 @@ public class MobileMovement : MonoBehaviour
 		_playerMovement.IphoneMovements.Disable();
 		_playerMovement.MouseMovement.MouseMovement.Disable();
 	}
-
-	// Event handler for touch start
 	private void StartTouch(InputAction.CallbackContext context)
 	{
 		Debug.Log("Touch started" +
@@ -86,8 +80,6 @@ public class MobileMovement : MonoBehaviour
 			OnStartTouch(_playerMovement.IphoneMovements.Touchposition.ReadValue<Vector2>(),
 				(float)context.startTime);
 	}
-
-	// Event handler for touch end
 	private void EndTouch(InputAction.CallbackContext context)
 	{
 		Debug.Log("Touch Ended");
