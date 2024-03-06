@@ -11,7 +11,6 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        // Check if instance is null, if it is, make this the instance
         if (Instance == null)
         {
             Instance = this;
