@@ -7,7 +7,7 @@ public class InputHandler : MonoBehaviour, AxisState.IInputAxisProvider
     [HideInInspector] public InputAction Horizontal;
     [HideInInspector] public InputAction Vertical;
 
-    // Makes sure every player has its own input
+    // gives each player own input
     public float GetAxisValue(int pAxis)
     {
         switch (pAxis)
