@@ -8,8 +8,7 @@ public class SetCameraLayers : MonoBehaviour
     [SerializeField] private LayerMask _Player4Culling;
     [SerializeField] private Camera _Camera;
     private MultiplayerManager _playerManager;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         _playerManager = FindObjectOfType<MultiplayerManager>();
