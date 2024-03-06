@@ -49,11 +49,6 @@ public class CameraController : MonoBehaviour
         RayCastForCameraView();
     }
 
-    public void FixedUpdate()
-    {
-        // MouseInput();
-    }
-
     private void RayCastForCameraView()
     {
         Debug.DrawRay(Player.position, -transform.forward * directionZ, Color.green);
@@ -70,7 +65,6 @@ public class CameraController : MonoBehaviour
             Debug.DrawRay(Player.position, -transform.forward * directionZ, Color.red);
         }
     }
-
 
     private void MouseInput()
     {
@@ -100,26 +94,5 @@ public class CameraController : MonoBehaviour
 
         transform.position = Player.position + OffSet; // Set the new position of the camera
         transform.LookAt(Player.position); // Look at the player
-
-        #region TouchInputOnScreen
-
-        // CurrentTouchPos = Touchscreen.current.delta.ReadValue();
-        // DeltaPos = CurrentTouchPos;
-        //
-        // OffSet = Quaternion.AngleAxis(DeltaPos.x * _turnSensitivity * Time.deltaTime, Vector3.up) *
-        //          OffSet;
-        // Quaternion targetRotation =
-        // 	Quaternion.LookRotation(Player.position - transform.position, Vector3.up);
-        //
-        // transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation,
-        // 	_rotationSpeed * Time.deltaTime);
-        //
-        // transform.position = Player.position + OffSet; // Set the new position of the camera
-        // transform.LookAt(Player.position); // Look at the player
-        //
-        // CurrentTouchPos = Touchscreen.current.delta.ReadValue();
-        // DeltaPos = CurrentTouchPos;
-
-        #endregion
     }
 }
