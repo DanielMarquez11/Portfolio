@@ -47,16 +47,7 @@ public class MobileMovement : MonoBehaviour
 	// Update method calculates movement direction based on touch input and camera orientation
 	private void Update()
 	{
-		Vector3 camForward = Camera.main.transform.forward;
-		Vector3 camRight = Camera.main.transform.right;
-
-		camForward.y = 0;
-		camRight.y = 0;
-
-		Vector3 forwardRelative = _inputVector.y * camForward;
-		Vector3 rightRelative = _inputVector.x * camRight;
-
-		_moveDirection = forwardRelative + rightRelative;
+		GetCameraDirection();
 	}
 	private void OnEnable()
 	{
@@ -72,6 +63,20 @@ public class MobileMovement : MonoBehaviour
 		_playerMovement.IphoneMovements.Disable();
 		_playerMovement.MouseMovement.MouseMovement.Disable();
 	}
+
+	private void GetCameraDirection()
+	{
+		Vector3 camForward = Camera.main.transform.forward;
+		Vector3 camRight = Camera.main.transform.right;
+
+		camForward.y = 0;
+		camRight.y = 0;
+
+		Vector3 forwardRelative = _inputVector.y * camForward;
+		Vector3 rightRelative = _inputVector.x * camRight;
+
+		_moveDirection = forwardRelative + rightRelative;
+	}
 	private void StartTouch(InputAction.CallbackContext context)
 	{
 		Debug.Log("Touch started" +
@@ -84,7 +89,6 @@ public class MobileMovement : MonoBehaviour
 	{
 		Debug.Log("Touch Ended");
 		if (OnEndTouch != null)
-			OnEndTouch(_playerMovement.IphoneMovements.Touchposition.ReadValue<Vector2>(),
-				(float)context.time);
+			OnEndTouch(_playerMovement.IphoneMovements.Touchposition.ReadValue<Vector2>(),(float)context.time);
 	}
 }
