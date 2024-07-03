@@ -25,13 +25,6 @@ public class EndScreen : MonoBehaviour
     {
         PersistentScoreManager = GetComponent<PersistentScoreManager>();
         _fadeManager = GetComponent<FadeManager>();
-        //
-        // // Retrieve the score and high score from PlayerPrefs and display them
-        // score = PlayerPrefs.GetInt("Score", 0);
-        // highScore = PlayerPrefs.GetInt("HighScore", 0);
-        //
-        // pointsText.text = "Score: " + score;
-        // highScoreText.text = "HighScore: " + highScore;
     }
 
     public void OnTryAgain()
